@@ -48,7 +48,7 @@ function ExchangeChart() {
 
 	useInterval(() => {
     update();
-  }, 5000);
+  }, 60000);
 
   	return (
       <div>
