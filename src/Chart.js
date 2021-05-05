@@ -1,14 +1,15 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer, Tooltip } from 'recharts';
 import Title from './Title';
 import { getHistoricalData } from './utils.js';
+import Typography from '@material-ui/core/Typography';
 
 export default function Chart() {
   const theme = useTheme();
 
   const [data, setData] = useState([]);
+  const [lastUpdated, setLastUpdated] = useState('');
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -34,6 +35,7 @@ export default function Chart() {
   function update(){
     getHistoricalData()
     .then((result) => {
+      setLastUpdated(new Date().toLocaleString());
       setData(result.pointsArray);
     });
   }
@@ -45,6 +47,7 @@ export default function Chart() {
   return (
     <React.Fragment>
       <Title>Wow Very Dogecoin Data</Title>
+      <Typography variant="caption">Last Updated: {lastUpdated}</Typography>
       <ResponsiveContainer>
         <LineChart
           data={data}

@@ -15,9 +15,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Ticker from './Ticker.js';
 import NewsTicker from './NewsTicker.js';
 import Avatar from '@material-ui/core/Avatar';
+import ExchangeChart from './ExchangeChart.js';
 
 function Copyright() {
   return (
+    <div>
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://wowmuchdogecoin.com/">
@@ -26,6 +28,10 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
+    <Typography variant="body2" color="textSecondary" align="center">
+      Powered by CoinGecko API
+    </Typography>
+    </div>
   );
 }
 
@@ -56,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  fixedHeightTable: {
+    height: 480,
+  },
   gridList: {
   	"width": 'auto',
     "height": 'auto',
@@ -67,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightTable = clsx(classes.paper, classes.fixedHeightTable);
 
   return (
     <div className={classes.root}>
@@ -76,6 +86,9 @@ export default function App() {
           <Avatar alt="Dogecoin Picture" src="/static/images/Dogecoin_logo.jpeg" />
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Wow Much Dogecoin
+          </Typography>
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+            The only currency you care about!
           </Typography>
         </Toolbar>
       </AppBar>
@@ -95,10 +108,15 @@ export default function App() {
                 <Ticker />
               </Paper>
             </Grid>
-            <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            	Wow Much News
-          	</Typography>
+            <Grid item xs={12}>
+              <Paper className={fixedHeightTable}>
+                <ExchangeChart />
+              </Paper>
+            </Grid>
             <Grid item xs={12} >
+              <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                Wow Much News
+              </Typography>
             	<GridList className={classes.gridList} cols={3}>
           			<NewsTicker />
           		</GridList>

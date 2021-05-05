@@ -11,6 +11,7 @@ function Ticker() {
 
 	const [price, setPrice] = useState('');
 	const [delta, setDelta] = useState('');
+  const [lastUpdated, setLastUpdated] = useState('');
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -36,7 +37,7 @@ function Ticker() {
   function update(){
     getData()
     .then((result) => {
-      console.log("Current Price: " + result);
+      setLastUpdated(new Date().toLocaleString());
       setPrice(result.dogecoin.usd.toFixed(4));
       setDelta(result.dogecoin.usd_24h_change.toFixed(4));
     });
@@ -67,7 +68,8 @@ function Ticker() {
           			Dogecoin Price (DOGE)
         		</Typography>
         		<Price price={price}/>
-          		<Delta delta={delta}/>
+          	<Delta delta={delta}/>
+            <Typography variant="caption" gutterBottom>Last Updated: {lastUpdated} </Typography>
       		</CardContent>
     	</Card>
   	);

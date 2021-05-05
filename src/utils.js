@@ -13,6 +13,11 @@ export function getDogeStories(){
     .then(handleResponse);
 }
 
+export function getDogeExchanges(){
+    return fetch("https://37v2u26hzl.execute-api.us-east-1.amazonaws.com/dev/dogecoin/exchanges")
+    .then(handleResponse);
+}
+
 function handleResponse(response) {
     return response.text().then(text => {
         const data = text && JSON.parse(text);
