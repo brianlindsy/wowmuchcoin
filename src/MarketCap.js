@@ -36,7 +36,7 @@ function Ticker() {
     .then((result) => {
       result.map((coin, index) => {
         if(coin.id === "dogecoin"){
-          setMarketCap(index);
+          setMarketCap(index + 1);
         }
       });
       setLastUpdated(new Date().toLocaleString());
