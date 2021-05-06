@@ -46,8 +46,8 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Wow Very Dogecoin Data</Title>
-      <Typography variant="caption">Last Updated: {lastUpdated}</Typography>
+      <Title>DOGECOIN DATA WOW</Title>
+      <Typography variant="caption">24hrs, Last Updated: {lastUpdated}</Typography>
       <ResponsiveContainer>
         <LineChart
           data={data}

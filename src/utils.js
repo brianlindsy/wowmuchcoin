@@ -3,6 +3,11 @@ export function getData() {
 	.then(handleResponse);
 }
 
+export function getMarketCap() {
+    return fetch("https://37v2u26hzl.execute-api.us-east-1.amazonaws.com/dev/coins/marketCap")
+    .then(handleResponse);
+}
+
 export function getHistoricalData() {
     return fetch("https://37v2u26hzl.execute-api.us-east-1.amazonaws.com/dev/dogecoin/history")
     .then(handleResponse);

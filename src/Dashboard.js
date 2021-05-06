@@ -17,6 +17,7 @@ import NewsTicker from './NewsTicker.js';
 import Avatar from '@material-ui/core/Avatar';
 import ExchangeChart from './ExchangeChart.js';
 import HorizontalScrollBlog from './HorizontalScrollBlog.js';
+import MarketCap from './MarketCap.js';
 
 function Copyright() {
   return (
@@ -90,10 +91,7 @@ export default function App() {
         <Toolbar>
           <Avatar alt="Dogecoin Picture" src="/static/images/Dogecoin_logo.jpeg" />
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Wow Much Dogecoin
-          </Typography>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            The only currency you care about!
+            wowmuchdogecoin.com
           </Typography>
         </Toolbar>
       </AppBar>
@@ -101,9 +99,14 @@ export default function App() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
+            <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightNewsScroll}>
                 <HorizontalScrollBlog />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <MarketCap />
               </Paper>
             </Grid>
             {/* Chart */}
@@ -125,7 +128,7 @@ export default function App() {
             </Grid>
             <Grid item xs={12} >
               <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                Wow Much News
+                WOW MUCH NEWS
               </Typography>
             	<GridList className={classes.gridList} cols={3}>
           			<NewsTicker />
