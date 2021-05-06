@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -12,36 +12,28 @@ import GridListTile from '@material-ui/core/GridListTile';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
+    maxHeight: 300
+  }
 });
 
-export default function MediaCard(props) {
+export default function NewsListItem(props) {
   const classes = useStyles();
 
   return (
-    <GridListTile>
-    <Card className={classes.root} variant="outlined">
+    <GridListTile cols={2}>
+    <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.story.imageUrl}
-          title={props.story.title}
-        />
+        <Avatar src="/static/images/Chino_Bowtie_2.jpeg"
+          alt="Chino Bowtie"/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.story.title}
+            {props.newsItem.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {props.story.description}
+            {props.newsItem.content}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button href={props.story.url} target="_blank">Follow Story</Button>
-      </CardActions>
     </Card>
     </GridListTile>
   );
