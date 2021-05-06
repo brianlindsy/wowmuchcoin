@@ -6,7 +6,7 @@ function NewsTicker() {
   	const [newsStories, setNewsStories] = useState([]);
 
   	const cardsArray = newsStories.map((story, index) => (
-    	<NewsCard story={story} id={index}/>
+    	<NewsCard story={story} id={story.title}/>
   	));
 
     function update(){

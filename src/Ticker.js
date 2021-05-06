@@ -48,15 +48,9 @@ function Ticker() {
   }, 5000);
 
   const useStyles = makeStyles({
-  		root: {
-    		maxWidth: 275,
-  		},
   		title: {
     		fontSize: 14,
-  		},
-  		pos: {
-    		marginBottom: 6,
-  		},
+  		}
 	});
 
 	const classes = useStyles();
@@ -64,12 +58,12 @@ function Ticker() {
   	return (
     	<Card className={classes.root}>
       		<CardContent>
-        		<Typography className={classes.title} color="textSecondary" gutterBottom>
+        		<Typography className={classes.title} color="textSecondary">
           			Dogecoin Price (DOGE)
         		</Typography>
         		<Price price={price}/>
           	<Delta delta={delta}/>
-            <Typography variant="caption" gutterBottom>Last Updated: {lastUpdated} </Typography>
+            <Typography variant="caption">Last Updated: {lastUpdated} </Typography>
       		</CardContent>
     	</Card>
   	);
