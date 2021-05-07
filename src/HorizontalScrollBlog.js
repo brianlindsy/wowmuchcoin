@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
 const tileData = [
 {
   img: '/static/images/chino.jpeg',
+  title: 'MAY 7th DOGE UPDATE FROM CHINO',
+  content: "THE WORD OF THE DAY IS UP UP UP TO THE BARKING MOON!"
+},
+{
+  img: '/static/images/chino.jpeg',
   title: 'MAY 6th DOGE UPDATE FROM CHINO',
   content: "WOW MUCH WEEKEND ANTICIPATION ABOUT BILLIONAIRE CAR MAN ON FUNNY TV SHOW, WILL HE AMAZE??"
 },
